@@ -157,7 +157,7 @@ async def daily_updates():
         connection.close()
     
     except Exception as e:
-        print(f"Something went wrong checking while doing daily updates. \nError: {str(e)}")
+        print(f'Something went wrong checking while doing daily updates. \nError: {str(e)}')
 
 # Server-side polling
 async def server_poll(server_id, channel_id):
@@ -187,7 +187,7 @@ async def server_poll(server_id, channel_id):
         # Create poll (embed)
         prev_sunday = get_previous_sunday(pytz.timezone(timezone))
         upcoming_saturday = prev_sunday + timedelta(days=6)
-        embed = discord.Embed(title=f'Weekly Meeting Poll ({prev_sunday.strftime('%m/%d/%Y')} - {upcoming_saturday.strftime("%m/%d/%Y")})',
+        embed = discord.Embed(title=f'Weekly Meeting Poll ({prev_sunday.strftime("%m/%d/%Y")} - {upcoming_saturday.strftime("%m/%d/%Y")})',
                         description=f'React to this meeting poll to set your availability for the week. \n\nWhen {min_members} or more participants are free on a day, an automatic arrangement will be made.',
                         colour=0x00ff1e)
 
@@ -227,7 +227,7 @@ async def poll(ctx: commands.Context):
         # Create poll (embed)
         prev_sunday = get_previous_sunday(pytz.timezone(timezone))
         upcoming_saturday = prev_sunday + timedelta(days=6)
-        embed = discord.Embed(title=f'Weekly Meeting Poll ({prev_sunday.strftime('%m/%d/%Y')} - {upcoming_saturday.strftime("%m/%d/%Y")})',
+        embed = discord.Embed(title=f'Weekly Meeting Poll ({prev_sunday.strftime("%m/%d/%Y")} - {upcoming_saturday.strftime("%m/%d/%Y")})',
                         description=f'React to this meeting poll to set your availability for the week. \n\nWhen {min_members} or more participants are free on a day, an automatic arrangement will be made.',
                         colour=0x00ff1e)
 
@@ -276,7 +276,7 @@ async def on_raw_reaction_add(payload):
     tz = pytz.timezone(timezone)
     prev_sunday = get_previous_sunday(tz)
     upcoming_saturday = prev_sunday + timedelta(days=6)
-    new_embed = discord.Embed(title=f'Weekly Meeting Poll ({prev_sunday.strftime('%m/%d/%Y')} - {upcoming_saturday.strftime('%m/%d/%Y')})',
+    new_embed = discord.Embed(title=f'Weekly Meeting Poll ({prev_sunday.strftime("%m/%d/%Y")} - {upcoming_saturday.strftime("%m/%d/%Y")})',
                       description=f'React to this meeting poll to set your availability for the week.\n\nWhen {min_members} or more participants are free on a day, an automatic arrangement will be made.\n\n{out}' ,
                       colour=0x00ff1e)
     await m.edit(embed=new_embed)
@@ -319,7 +319,7 @@ async def on_raw_reaction_remove(payload):
     tz = pytz.timezone(timezone)
     prev_sunday = get_previous_sunday(tz)
     upcoming_saturday = prev_sunday + timedelta(days=6)
-    new_embed = discord.Embed(title=f'Weekly Meeting Poll ({prev_sunday.strftime('%m/%d/%Y')} - {upcoming_saturday.strftime('%m/%d/%Y')})',
+    new_embed = discord.Embed(title=f'Weekly Meeting Poll ({prev_sunday.strftime("%m/%d/%Y")} - {upcoming_saturday.strftime("%m/%d/%Y")})',
                       description=f'React to this meeting poll to set your availability for the week.\n\nWhen {min_members} or more participants are free on a day, an automatic arrangement will be made.\n\n{out}' ,
                       colour=0x00ff1e)
     await m.edit(embed=new_embed)
