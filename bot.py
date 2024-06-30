@@ -9,7 +9,7 @@ import asyncio
 import schedule
 from geopy.geocoders import Nominatim
 
-# Fill In Below
+# Fill in below
 TOKEN = ''
 server_timezone = ''
 
@@ -77,8 +77,9 @@ async def setup(ctx: commands.Context, location: str, timezone: str, update_hour
 
         await ctx.send(f'OutsideBot setup finished! Daily update time (UTC) is: {str(update_at_utc_time)}')
 
-        # Add / check for weekly poll
-        await server_poll(ctx.guild.id, ctx.channel.id)
+        # Run Daily Updates (because of new entry)
+        await daily_updates()
+
 
 
     except Exception as e:
