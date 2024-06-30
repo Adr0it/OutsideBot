@@ -9,7 +9,7 @@ import asyncio
 import schedule
 from geopy.geocoders import Nominatim
 
-# Fill in below
+# Fill in fields
 TOKEN = ''
 server_timezone = ''
 
