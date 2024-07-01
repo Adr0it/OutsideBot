@@ -405,6 +405,7 @@ async def toggle_reaction(server_id, channel_id):
     async for msg in channel.history(limit=100):
         if msg.author == bot.user and msg.embeds: 
             latest_msg = msg
+            break
         
     # triggers weather update (toggle emoji off and on)
     if latest_msg: 
