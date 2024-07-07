@@ -20,6 +20,8 @@ bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 async def on_ready():
     print(f'OutsideBot has connected...')
     await bot.tree.sync()
+
+    schedule.clear()
     await daily_updates()
 
     while True:
@@ -78,6 +80,7 @@ async def setup(ctx: commands.Context, location: str, timezone: str, update_hour
         await ctx.send(f'OutsideBot setup finished! Daily update time (UTC) is: {str(update_at_utc_time)}')
 
         # Run Daily Updates (because of new entry)
+        schedule.clear()
         await daily_updates()
 
 
@@ -431,6 +434,5 @@ def get_row(server_id, channel_id):
     connection.close()
 
     return row
-
 
 bot.run(TOKEN)
