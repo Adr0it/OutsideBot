@@ -28,7 +28,6 @@ async def on_ready():
         schedule.run_pending()
         await asyncio.sleep(1)
 
-# !setup "Ukrainian Village, Chicago" America/Chicago 10 0 6 1
 # Setup command for bot (updates database.db)
 @bot.hybrid_command()
 @commands.has_permissions(administrator=True)
