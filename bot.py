@@ -60,7 +60,7 @@ async def setup(ctx: commands.Context, location: str, timezone: str, update_hour
 
         cursor.execute(f'''
         INSERT OR REPLACE INTO update_info VALUES
-        ({ctx.guild.id}, {ctx.channel.id}, '{location}', '{timezone}', '{str(update_at_utc_time)}', '{forecast_duration}', '{min_members}')
+        ({ctx.guild.id}, {ctx.channel.id}, '{location}', '{timezone}', '{str(update_at_utc_time)}', '{forecast_duration - 1}', '{min_members}')
         ''')
 
         cursor.execute('''
